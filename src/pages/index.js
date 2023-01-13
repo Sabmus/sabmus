@@ -1,83 +1,59 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
 
-import Bio from "../components/bio"
+import Welcome from "../components/welcome/welcome-component"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+
+import {
+  LastPostWrapper,
+  PostsWrapper,
+  PostsHead,
+} from "../styles/pages/index/index-styles"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allMarkdownRemark.nodes
 
-  if (posts.length === 0) {
-    return (
-      <Layout location={location} title={siteTitle}>
-        <Bio />
-        <p>
-          No blog posts found. Add markdown posts to "content/blog" (or the
-          directory you specified for the "gatsby-source-filesystem" plugin in
-          gatsby-config.js).
-        </p>
-      </Layout>
-    )
-  }
-
   return (
     <Layout location={location} title={siteTitle}>
-      <Bio />
-      <ol style={{ listStyle: `none` }}>
-        {posts.map(post => {
-          const title = post.frontmatter.title || post.fields.slug
+      <Welcome />
 
-          return (
-            <li key={post.fields.slug}>
-              <article
-                className="post-list-item"
-                itemScope
-                itemType="http://schema.org/Article"
-              >
-                <header>
-                  <h2>
-                    <Link to={post.fields.slug} itemProp="url">
-                      <span itemProp="headline">{title}</span>
-                    </Link>
-                  </h2>
-                  <small>{post.frontmatter.date}</small>
-                </header>
-                <section>
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: post.frontmatter.description || post.excerpt,
-                    }}
-                    itemProp="description"
-                  />
-                </section>
-              </article>
-            </li>
-          )
-        })}
-      </ol>
+      <LastPostWrapper>
+        <h2>Last Posts</h2>
+
+        {posts.map(post => (
+          <PostsWrapper key={post.id}>
+            <PostsHead>
+              <Link to={`blog${post.fields.slug}`}>
+                <h4>{post.frontmatter.title || "No-title!"}</h4>
+              </Link>
+              <span>{post.frontmatter.date}</span>
+            </PostsHead>
+            <div>
+              <p>
+                <em>{post.frontmatter.description || post.excerpt}</em>
+              </p>
+            </div>
+          </PostsWrapper>
+        ))}
+      </LastPostWrapper>
     </Layout>
   )
 }
 
 export default BlogIndex
 
-/**
- * Head export to define metadata for the page
- *
- * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
- */
 export const Head = () => <Seo title="All posts" />
 
 export const pageQuery = graphql`
-  {
+  query pageData($limit: Int = 3) {
     site {
       siteMetadata {
         title
       }
     }
-    allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
+    allMarkdownRemark(sort: { frontmatter: { date: DESC } }, limit: $limit) {
       nodes {
         excerpt
         fields {
@@ -88,6 +64,7 @@ export const pageQuery = graphql`
           title
           description
         }
+        id
       }
     }
   }

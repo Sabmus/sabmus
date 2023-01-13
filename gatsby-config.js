@@ -9,19 +9,49 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `Sabmus Website`,
     author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
+      name: `Simón Muñoz Saavedra`,
+      summary: `a Chilean computer engineer fan of motorsport, videogames, epic fantasy books, and learn about tech. Hope you can find some useful information here`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
+    description: `This is my personal website`,
     siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
-    social: {
-      twitter: `kylemathews`,
-    },
+    rrss: [
+      {
+        name: `Github`,
+        url: `https://github.com/Sabmus`,
+      },
+      {
+        name: `LinkedIn`,
+        url: `https://www.linkedin.com/in/sabmus/`,
+      },
+      {
+        name: `Instagram`,
+        url: `https://www.instagram.com/simonmunozs/`,
+      },
+    ],
+    navRoutes: [
+      {
+        name: "Blog",
+        path: "/blog",
+      },
+      {
+        name: "Projects",
+        path: "/projects",
+      },
+      {
+        name: "Hobbies",
+        path: "/hobbies",
+      },
+      {
+        name: "About",
+        path: "/about",
+      },
+    ],
   },
   plugins: [
     `gatsby-plugin-image`,
+    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
