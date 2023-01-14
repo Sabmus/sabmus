@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-blog",
+  "name": "sabmus-web",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
-  "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "description": "sabmus personal website",
+  "version": "1.0.0",
+  "author": "Simón Muñoz Saavedra",
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
@@ -40,7 +40,7 @@
   "license": "0BSD",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
+    "url": "git+https://github.com/Sabmus/sabmus.git"
   },
   "scripts": {
     "build": "gatsby build",
