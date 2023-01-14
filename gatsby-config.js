@@ -50,6 +50,7 @@ module.exports = {
     ],
   },
   plugins: [
+    `gatsby-plugin-netlify`,
     `gatsby-plugin-image`,
     `gatsby-plugin-styled-components`,
     {

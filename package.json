@@ -15,6 +15,7 @@
     "gatsby-plugin-feed": "^5.4.0",
     "gatsby-plugin-image": "^3.4.0",
     "gatsby-plugin-manifest": "^5.4.0",
+    "gatsby-plugin-netlify": "^5.1.0",
     "gatsby-plugin-sharp": "^5.4.0",
     "gatsby-plugin-styled-components": "^6.4.0",
     "gatsby-remark-images": "^7.4.0",
@@ -29,6 +30,7 @@
     "styled-components": "^5.3.6"
   },
   "devDependencies": {
+    "gh-pages": "^4.0.0",
     "prettier": "^2.8.1"
   },
   "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
@@ -42,6 +44,7 @@
   },
   "scripts": {
     "build": "gatsby build",
+    "deploy": "gatsby build && gh-pages -d public -b main",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "gatsby develop",
