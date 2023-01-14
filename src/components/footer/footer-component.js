@@ -21,7 +21,7 @@ const Footer = () => {
     <FooterWrapper>
       <LinkWrapper>
         {rrssData.site.siteMetadata.rrss.map(rs => (
-          <a href={rs.url} target="_blank" rel="noreferrer">
+          <a key={rs.name} href={rs.url} target="_blank" rel="noreferrer">
             {rs.name}
           </a>
         ))}

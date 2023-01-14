@@ -25,7 +25,7 @@ const BlogIndex = ({ data, location }) => {
         {posts.map(post => (
           <PostsWrapper key={post.id}>
             <PostsHead>
-              <Link to={`blog${post.fields.slug}`}>
+              <Link to={post.fields.slug}>
                 <h4>{post.frontmatter.title || "No-title!"}</h4>
               </Link>
               <span>{post.frontmatter.date}</span>
