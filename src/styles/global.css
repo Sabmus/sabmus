@@ -87,6 +87,8 @@
   --color-steel-teal: #468c98;
   --color-honey-yellow: #f7b32b;
   --color-honey-yellow-bright: #ddf8ba;
+
+  --color-border-bottom: #1f71a3;
   --bg-main-color: var(--color-purple);
 }
 

@@ -11,6 +11,12 @@ export const Nav = styled.nav`
   justify-content: space-between;
   align-items: center;
   width: var(--maxWidth-lg);
+  padding-bottom: var(--spacing-2);
+  margin-bottom: var(--spacing-2);
+  border: 1px solid transparent;
+  border-left: none;
+  border-right: none;
+  border-bottom-color: var(--color-border-bottom);
 
   & div {
     & a {

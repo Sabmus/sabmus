@@ -114,8 +114,8 @@ module.exports = {
                   url: site.siteMetadata.siteUrl + node.fields.slug,
                   guid: site.siteMetadata.siteUrl + node.fields.slug,
                   custom_elements: [{ "content:encoded": node.html }],
-                })
-              })
+                });
+              });
             },
             query: `{
               allMarkdownRemark(sort: {frontmatter: {date: DESC}}) {
@@ -133,7 +133,7 @@ module.exports = {
               }
             }`,
             output: "/rss.xml",
-            title: "Gatsby Starter Blog RSS Feed",
+            title: "RSS Feed",
           },
         ],
       },
@@ -149,8 +149,8 @@ module.exports = {
         // https://css-tricks.com/meta-theme-color-and-trickery/
         // theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/code-icon.png`, // This path is relative to the root of the site.
       },
     },
   ],
-}
+};
