@@ -1,35 +1,56 @@
-import React from "react";
-import { Link, graphql } from "gatsby";
+import React, { useState } from "react";
+import { graphql } from "gatsby";
 
 import Layout from "../components/layout";
 import Post from "../components/post/post-component";
 import Categories from "../components/categories/categories-component";
+import Category from "../components/category/category-component";
 import Pager from "../components/pager/pager-component";
 
 import {
   ContentWrapper,
-  BlogWrapper,
-  SideWrapper,
+  CollapsibleCategories,
+  CollapsibleButton,
 } from "../styles/templates/blog-styles";
 
 const Blog = ({ data, pageContext }) => {
-  console.log(data);
+  const [show, setShow] = useState(false);
+
   const posts = data.allMarkdownRemark.nodes;
-  const tags = data.allMarkdownRemark.tags;
+
+  const onClickCollapseHandle = () => {
+    setShow(!show);
+  };
 
   return (
     <Layout>
-      <Link to="/">Home</Link>
-
       <ContentWrapper>
-        <BlogWrapper>
+        <div className="blogs">
           {posts.map(post => (
             <Post key={post.id} post={post} />
           ))}
-        </BlogWrapper>
-        <SideWrapper>
+        </div>
+        <div className="categories">
           <Categories />
-        </SideWrapper>
+        </div>
+        <CollapsibleCategories>
+          <CollapsibleButton type="button" onClick={onClickCollapseHandle}>
+            Categories
+          </CollapsibleButton>
+
+          <div
+            className="collapseCategories"
+            style={{
+              height: show
+                ? `${
+                    document.querySelector(".collapseCategories").scrollHeight
+                  }px`
+                : null,
+            }}
+          >
+            <Category />
+          </div>
+        </CollapsibleCategories>
       </ContentWrapper>
 
       <Pager pages={pageContext} />

@@ -1,32 +1,18 @@
 import React from "react";
-import { useStaticQuery, graphql } from "gatsby";
+
+import Category from "../../components/category/category-component";
 
 import { CategoriesWrapper, CategoryWrapper } from "./categories-styles";
 
 const Categories = () => {
-  const categoriesObj = useStaticQuery(graphql`
-    query {
-      allMarkdownRemark {
-        categories: group(field: { frontmatter: { categories: SELECT } }) {
-          name: fieldValue
-          count: totalCount
-        }
-      }
-    }
-  `);
-
-  const categories = categoriesObj.allMarkdownRemark.categories;
-  categories.sort((a, b) => b.count - a.count);
-
   return (
     <CategoriesWrapper>
-      <h4>Categories</h4>
-      {categories.map(category => (
-        <CategoryWrapper key={category.name}>
-          <span>{category.name}</span>
-          <span>{category.count}</span>
+      <div>
+        <h4>Categories</h4>
+        <CategoryWrapper>
+          <Category />
         </CategoryWrapper>
-      ))}
+      </div>
     </CategoriesWrapper>
   );
 };
