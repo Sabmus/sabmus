@@ -3,19 +3,34 @@ import { Link, graphql } from "gatsby";
 
 import Layout from "../components/layout";
 import Post from "../components/post/post-component";
+import Categories from "../components/categories/categories-component";
 import Pager from "../components/pager/pager-component";
 
+import {
+  ContentWrapper,
+  BlogWrapper,
+  SideWrapper,
+} from "../styles/templates/blog-styles";
+
 const Blog = ({ data, pageContext }) => {
+  console.log(data);
   const posts = data.allMarkdownRemark.nodes;
-  console.log(pageContext);
+  const tags = data.allMarkdownRemark.tags;
 
   return (
     <Layout>
       <Link to="/">Home</Link>
 
-      {posts.map(post => (
-        <Post key={post.id} post={post} />
-      ))}
+      <ContentWrapper>
+        <BlogWrapper>
+          {posts.map(post => (
+            <Post key={post.id} post={post} />
+          ))}
+        </BlogWrapper>
+        <SideWrapper>
+          <Categories />
+        </SideWrapper>
+      </ContentWrapper>
 
       <Pager pages={pageContext} />
     </Layout>
@@ -43,6 +58,7 @@ export const query = graphql`
           slug
         }
       }
+      tags: distinct(field: { frontmatter: { tags: SELECT } })
     }
   }
 `;

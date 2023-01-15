@@ -2,6 +2,18 @@
 title: Hello World
 date: "2015-05-01T22:12:03.284Z"
 description: "Hello World"
+categories:
+  [
+    "category1",
+    "category2",
+    "category3",
+    "category4",
+    "category5",
+    "category6",
+    "category7",
+    "category8",
+  ]
+tags: ["tag5", "tag6", "tag7"]
 ---
 
 This is my first post on my new fake blog! How exciting!
@@ -24,7 +36,7 @@ Oh, and here's a great quote from this Wikipedia on
 You can also write code blocks here!
 
 ```js
-const saltyDuckEgg = "chinese preserved food product"
+const saltyDuckEgg = "chinese preserved food product";
 ```
 
 | Number | Title                                    | Year |
