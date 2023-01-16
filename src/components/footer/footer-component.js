@@ -1,7 +1,7 @@
-import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import React from "react";
+import { useStaticQuery, graphql } from "gatsby";
 
-import { FooterWrapper, LinkWrapper } from "./footer-styles"
+import { FooterWrapper, LinkWrapper } from "./footer-styles";
 
 const Footer = () => {
   const rrssData = useStaticQuery(graphql`
@@ -15,7 +15,7 @@ const Footer = () => {
         }
       }
     }
-  `)
+  `);
 
   return (
     <FooterWrapper>
@@ -32,7 +32,7 @@ const Footer = () => {
         </code>
       </div>
     </FooterWrapper>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

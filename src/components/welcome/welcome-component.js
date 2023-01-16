@@ -1,13 +1,13 @@
-import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
+import React from "react";
+import { useStaticQuery, graphql } from "gatsby";
+import { StaticImage } from "gatsby-plugin-image";
 
-import { WelcomeWrapper } from "./welcome-styles"
+import { WelcomeWrapper } from "./welcome-styles";
 
 const Welcome = () => {
-  const imgWidth = 130
-  const imgHeight = 130
-  const imgQuality = 95
+  const imgWidth = 130;
+  const imgHeight = 130;
+  const imgQuality = 95;
 
   const data = useStaticQuery(graphql`
     query WelcomeQuery {
@@ -20,9 +20,9 @@ const Welcome = () => {
         }
       }
     }
-  `)
+  `);
 
-  const author = data.site.siteMetadata?.author
+  const author = data.site.siteMetadata?.author;
 
   return (
     <WelcomeWrapper>
@@ -44,7 +44,7 @@ const Welcome = () => {
         </p>
       </div>
     </WelcomeWrapper>
-  )
-}
+  );
+};
 
-export default Welcome
+export default Welcome;

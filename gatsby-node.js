@@ -10,6 +10,8 @@ const { paginate } = require(`gatsby-awesome-pagination`);
 
 const blogPost = path.resolve(`./src/templates/blog-post.js`);
 const Blog = path.resolve(`./src/templates/blog.js`);
+const blogCategories = path.resolve("./src/templates/blog-categories.js");
+const blogTags = path.resolve("./src/templates/blog-tags.js");
 
 const postPerPage = 2;
 
@@ -29,6 +31,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             slug
           }
         }
+        categories: distinct(field: { frontmatter: { categories: SELECT } })
+        tags: distinct(field: { frontmatter: { tags: SELECT } })
       }
     }
   `);
@@ -42,19 +46,21 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   }
 
   const posts = result.data.allMarkdownRemark.nodes;
+  const categories = result.data.allMarkdownRemark.categories;
+  const tags = result.data.allMarkdownRemark.tags;
 
+  // for pagination blog pages
   paginate({
-    createPage, // The Gatsby `createPage` function
-    items: posts, // An array of objects
-    itemsPerPage: postPerPage, // How many items you want per page
-    pathPrefix: "/blog", // Creates pages like `/blog`, `/blog/2`, etc
-    component: Blog, // Just like `createPage()`
+    createPage,
+    items: posts,
+    itemsPerPage: postPerPage,
+    pathPrefix: "/blog",
+    component: Blog,
   });
 
   // Create blog posts pages
   // But only if there's at least one markdown file found at "content/blog" (defined in gatsby-config.js)
   // `context` is available in the template as a prop and as a variable in GraphQL
-
   if (posts.length > 0) {
     posts.forEach((post, index) => {
       const previousPostId = index === 0 ? null : posts[index - 1].id;
@@ -68,6 +74,32 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           id: post.id,
           previousPostId,
           nextPostId,
+        },
+      });
+    });
+  }
+
+  // create pages for every category
+  if (categories.length > 0) {
+    categories.forEach(category => {
+      createPage({
+        path: "/blog/" + category, // need to slugify
+        component: blogCategories,
+        context: {
+          category: category,
+        },
+      });
+    });
+  }
+
+  // create pages for every tag
+  if (tags.length > 0) {
+    tags.forEach(tag => {
+      createPage({
+        path: "/blog/" + tag, // need to slugify
+        component: blogTags,
+        context: {
+          tag: tag,
         },
       });
     });

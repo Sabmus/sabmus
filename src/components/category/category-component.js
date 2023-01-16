@@ -1,5 +1,5 @@
 import React from "react";
-import { useStaticQuery, graphql } from "gatsby";
+import { useStaticQuery, graphql, Link } from "gatsby";
 
 import { CategoryElement } from "./category-styles";
 
@@ -22,7 +22,7 @@ const Category = () => {
     <>
       {categories.map(category => (
         <CategoryElement key={category.name}>
-          <span>{category.name}</span>
+          <Link to={`/blog/${category.name}`}>{category.name}</Link>
           <span>{category.count}</span>
         </CategoryElement>
       ))}

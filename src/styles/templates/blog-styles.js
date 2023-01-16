@@ -19,10 +19,11 @@ export const CollapsibleButton = styled.button`
   color: white;
   border: 1px solid var(--color-uranian-blue);
   border-radius: 5px;
-  box-shadow: 0px 2px 5px var(--color-uranian-blue);
+  box-shadow: 0px 1px 2px var(--color-uranian-blue);
 
-  &::after {
-    content: "V";
+  & .down-arrow-container {
+    transform: rotate(0deg);
+    transition: transform 350ms ease-in-out 0s;
   }
 `;
 
