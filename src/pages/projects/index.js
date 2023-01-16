@@ -17,6 +17,7 @@ const Projects = () => {
           sourceInstanceName: { eq: "projects" }
           extension: { eq: "md" }
         }
+        sort: { childMarkdownRemark: { frontmatter: { date: DESC } } }
       ) {
         edges {
           node {

@@ -1,5 +1,6 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
+import { StaticImage } from "gatsby-plugin-image";
 
 import { FooterWrapper, LinkWrapper } from "./footer-styles";
 
@@ -26,10 +27,28 @@ const Footer = () => {
           </a>
         ))}
       </LinkWrapper>
-      <div>
+      <div className="footer">
         <code>
           created by <span>Sabmus</span>
         </code>
+        <a
+          href="https://www.gatsbyjs.com/"
+          target="_blank"
+          rel="noreferrer"
+          style={{ width: "20px", height: "20px" }}
+        >
+          <StaticImage
+            loading="eager"
+            layout="fixed"
+            formats={["auto", "webp", "avif"]}
+            src="../../images/gatsby-icon.png"
+            width={20}
+            height={20}
+            quality={95}
+            alt="Gatsby Icon"
+            style={{ display: "inline-block" }}
+          />
+        </a>
       </div>
     </FooterWrapper>
   );
