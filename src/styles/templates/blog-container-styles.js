@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
-export const CollapsibleCategories = styled.div`
+export const CollapsibleDiv = styled.div`
   display: none;
 
-  & .collapseCategories {
+  & .collapseCategories,
+  .collapseTags {
     overflow: hidden;
     height: 0;
     will-change: height;
@@ -37,15 +38,19 @@ export const ContentWrapper = styled.div`
     display: flex;
     flex-direction: column;
     margin-top: var(--spacing-2);
-    gap: var(--spacing-4);
+    gap: var(--spacing-2);
 
     & .categories {
       display: none;
     }
 
-    ${CollapsibleCategories} {
+    ${CollapsibleDiv} {
       display: block;
       order: -1;
+    }
+
+    & .children-div {
+      margin-top: var(--spacing-4);
     }
   }
 `;

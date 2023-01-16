@@ -1,31 +1,41 @@
 import React from "react";
 import { graphql } from "gatsby";
 
-import Layout from "../components/layout";
+import BlogsContainer from "../templates/blogs-container";
+import Blogs from "../components/blogs/blogs-component";
 
-const BlogCategories = ({ data }) => {
+const BlogCategories = ({ data, pageContext }) => {
+  const posts = data.allMarkdownRemark.nodes;
+
   return (
-    <Layout>
-      <div>blog categories</div>
-    </Layout>
+    <BlogsContainer>
+      <Blogs posts={posts} pageContext={pageContext} title={pageContext.eq} />
+    </BlogsContainer>
   );
 };
 
 export default BlogCategories;
 
-export const blogCategoriesQuery = graphql`
-  query ($category: String = "") {
+export const blogsCategoriesQuery = graphql`
+  query ($skip: Int!, $limit: Int!, $eq: String = "") {
     allMarkdownRemark(
-      filter: { frontmatter: { categories: { eq: $category } } }
+      sort: { frontmatter: { date: DESC } }
+      skip: $skip
+      limit: $limit
+      filter: { frontmatter: { categories: { eq: $eq } } }
     ) {
       nodes {
         excerpt
+        id
         frontmatter {
           categories
           date(formatString: "MMMM D, YYYY")
           description
           tags
           title
+        }
+        fields {
+          slug
         }
       }
     }

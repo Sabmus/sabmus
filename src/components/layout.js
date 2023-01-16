@@ -1,10 +1,10 @@
-import * as React from "react"
+import React from "react";
 
-import Header from "../components/header/header-component"
-import Navigation from "./navigation/navigation-component"
-import Footer from "../components/footer/footer-component"
+import Header from "../components/header/header-component";
+import Navigation from "./navigation/navigation-component";
+import Footer from "../components/footer/footer-component";
 
-import { GlobalWrapper, MainWrapper, Content } from "./layout-styles"
+import { GlobalWrapper, MainWrapper, Content } from "./layout-styles";
 
 const Layout = ({ title, children }) => {
   return (
@@ -16,7 +16,7 @@ const Layout = ({ title, children }) => {
         <Footer />
       </MainWrapper>
     </GlobalWrapper>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;

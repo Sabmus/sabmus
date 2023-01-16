@@ -2,18 +2,8 @@
 title: Hello World
 date: "2015-05-01T22:12:03.284Z"
 description: "Hello World"
-categories:
-  [
-    "category1",
-    "category2",
-    "category3",
-    "category4",
-    "category5",
-    "category6",
-    "category7",
-    "category8",
-  ]
-tags: ["tag5", "tag6", "tag7"]
+categories: ["category1", "category2"]
+tags: ["tag1", "tag2", "tag3"]
 ---
 
 This is my first post on my new fake blog! How exciting!

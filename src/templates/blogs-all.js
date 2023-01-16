@@ -4,35 +4,32 @@ import { graphql } from "gatsby";
 import BlogsContainer from "./blogs-container";
 import Blogs from "../components/blogs/blogs-component";
 
-const BlogTags = ({ data, pageContext }) => {
+const BlogsAll = ({ data, pageContext }) => {
   const posts = data.allMarkdownRemark.nodes;
 
   return (
     <BlogsContainer>
-      <Blogs posts={posts} pageContext={pageContext} title={pageContext.eq} />
+      <Blogs posts={posts} pageContext={pageContext} title={"All Posts"} />
     </BlogsContainer>
   );
 };
 
-export default BlogTags;
+export default BlogsAll;
 
-export const blogsTagsQuery = graphql`
-  query ($skip: Int!, $limit: Int!, $eq: String = "") {
+export const allBlogsQuery = graphql`
+  query ($skip: Int!, $limit: Int!) {
     allMarkdownRemark(
       sort: { frontmatter: { date: DESC } }
       skip: $skip
       limit: $limit
-      filter: { frontmatter: { tags: { eq: $eq } } }
     ) {
       nodes {
         excerpt
         id
         frontmatter {
-          categories
-          date(formatString: "MMMM D, YYYY")
-          description
-          tags
           title
+          description
+          date(formatString: "MMMM D, YYYY")
         }
         fields {
           slug

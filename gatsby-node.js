@@ -9,7 +9,7 @@ const { createFilePath } = require(`gatsby-source-filesystem`);
 const { paginate } = require(`gatsby-awesome-pagination`);
 
 const blogPost = path.resolve(`./src/templates/blog-post.js`);
-const Blog = path.resolve(`./src/templates/blog.js`);
+const BlogsAll = path.resolve(`./src/templates/blogs-all.js`);
 const blogCategories = path.resolve("./src/templates/blog-categories.js");
 const blogTags = path.resolve("./src/templates/blog-tags.js");
 
@@ -31,8 +31,18 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             slug
           }
         }
-        categories: distinct(field: { frontmatter: { categories: SELECT } })
-        tags: distinct(field: { frontmatter: { tags: SELECT } })
+        groupByCategory: group(field: { frontmatter: { categories: SELECT } }) {
+          name: fieldValue
+          nodes {
+            id
+          }
+        }
+        groupByTag: group(field: { frontmatter: { tags: SELECT } }) {
+          name: fieldValue
+          nodes {
+            id
+          }
+        }
       }
     }
   `);
@@ -46,8 +56,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   }
 
   const posts = result.data.allMarkdownRemark.nodes;
-  const categories = result.data.allMarkdownRemark.categories;
-  const tags = result.data.allMarkdownRemark.tags;
+  const categories = result.data.allMarkdownRemark.groupByCategory;
+  const tags = result.data.allMarkdownRemark.groupByTag;
 
   // for pagination blog pages
   paginate({
@@ -55,7 +65,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     items: posts,
     itemsPerPage: postPerPage,
     pathPrefix: "/blog",
-    component: Blog,
+    component: BlogsAll,
   });
 
   // Create blog posts pages
@@ -82,11 +92,15 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   // create pages for every category
   if (categories.length > 0) {
     categories.forEach(category => {
-      createPage({
-        path: "/blog/" + category, // need to slugify
+      paginate({
+        createPage,
+        items: category.nodes,
+        itemsPerPage: postPerPage,
+        pathPrefix: "/blog/" + category.name,
         component: blogCategories,
         context: {
-          category: category,
+          //in: category.nodes.map(obj => obj.id),
+          eq: category.name,
         },
       });
     });
@@ -95,11 +109,15 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   // create pages for every tag
   if (tags.length > 0) {
     tags.forEach(tag => {
-      createPage({
-        path: "/blog/" + tag, // need to slugify
+      paginate({
+        createPage,
+        items: tag.nodes,
+        itemsPerPage: postPerPage,
+        pathPrefix: "/blog/" + tag.name,
         component: blogTags,
         context: {
-          tag: tag,
+          //in: tag.nodes.map(obj => obj.id),
+          eq: tag.name,
         },
       });
     });

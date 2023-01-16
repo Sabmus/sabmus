@@ -3,8 +3,12 @@ import styled from "styled-components";
 export const CategoriesWrapper = styled.div`
   text-align: center;
 
-  & h4 {
+  & .dimension {
     margin-bottom: var(--spacing-4);
+  }
+
+  & h4 {
+    margin-bottom: var(--spacing-2);
     color: var(--color-uranian-blue);
   }
 `;
