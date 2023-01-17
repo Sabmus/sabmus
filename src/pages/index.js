@@ -9,6 +9,8 @@ import Post from "../components/post/post-component";
 import { LastPostWrapper } from "../styles/pages/index/index-styles";
 
 const BlogIndex = ({ data, location }) => {
+  console.log(process.env.GA_TRACKING);
+
   const siteTitle = data.site.siteMetadata?.title || `Title`;
   const posts = data.allFile.nodes;
 
