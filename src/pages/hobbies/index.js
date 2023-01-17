@@ -1,13 +1,23 @@
 import React from "react";
 import Seo from "../../components/seo";
 import Layout from "../../components/layout";
-import { Link } from "gatsby";
+import { StaticImage } from "gatsby-plugin-image";
+
+import { ImageWrapper } from "../../styles/pages/hobbies/hobbies-styles";
 
 const Hobbies = () => {
   return (
     <Layout>
-      <div>this is the main Hobbies page</div>
-      <Link to="/">Home</Link>
+      <ImageWrapper>
+        <h3>Under Construction</h3>
+        <StaticImage
+          loading="eager"
+          layout="constrained"
+          formats={["auto", "webp", "avif"]}
+          src="../../images/underConstruction2.png"
+          alt="Under Construction"
+        />
+      </ImageWrapper>
     </Layout>
   );
 };

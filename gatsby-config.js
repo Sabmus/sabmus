@@ -15,7 +15,7 @@ module.exports = {
       summary: `a Chilean computer engineer fan of motorsport, videogames, epic fantasy books, and learn about tech. Hope you can find some useful information here`,
     },
     description: `This is my personal website`,
-    siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
+    siteUrl: `https://sabmus.com/`,
     rrss: [
       {
         name: `Github`,

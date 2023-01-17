@@ -49,7 +49,7 @@
     "Noto Color Emoji";
   --fontFamily-serif: "Merriweather", "Georgia", Cambria, "Times New Roman",
     Times, serif;
-  --font-body: var(--fontFamily-serif);
+  --font-body: var(--fontFamily-sans);
   --font-heading: var(--fontFamily-sans);
   --fontWeight-normal: 400;
   --fontWeight-bold: 700;
@@ -114,12 +114,6 @@ body {
   background: var(--bg-main-color);
   margin: 0;
   padding: 0;
-}
-
-hr {
-  background: var(--color-accent);
-  height: 1px;
-  border: 0;
 }
 
 /* Heading */
