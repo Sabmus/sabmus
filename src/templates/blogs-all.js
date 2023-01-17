@@ -7,7 +7,6 @@ import Blogs from "../components/blogs/blogs-component";
 
 const BlogsAll = ({ data, pageContext }) => {
   const posts = data.allFile.nodes;
-  console.log(posts);
 
   return (
     <BlogsContainer>
