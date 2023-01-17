@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "../../components/layout";
 
-import { TooLongDidntRead } from "./about-styles";
+import { TlDr } from "../../styles/pages/about/about-styles";
 
 const About = () => {
   const urls = {
@@ -92,14 +92,14 @@ const About = () => {
           </div>
           {/* TL:DR */}
 
-          <TooLongDidntRead>
+          <TlDr>
             <h6>TL;DR</h6>
             <p>
               Computer Engineer that in the past few years have been working in
               Business Intelligence positions, that wants to return to Web
               Development.
             </p>
-          </TooLongDidntRead>
+          </TlDr>
 
           {/* HISTORY SECTION */}
           <div>
