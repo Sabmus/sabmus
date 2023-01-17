@@ -29,7 +29,7 @@ const Footer = () => {
       </LinkWrapper>
       <div className="footer">
         <code>
-          created by <span>Sabmus</span>
+          created by <span>Sabmus</span> with
         </code>
         <a
           href="https://www.gatsbyjs.com/"

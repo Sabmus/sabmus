@@ -32,6 +32,10 @@ module.exports = {
     ],
     navRoutes: [
       {
+        name: "About",
+        path: "/about",
+      },
+      {
         name: "Blog",
         path: "/blog",
       },
@@ -42,10 +46,6 @@ module.exports = {
       {
         name: "Hobbies",
         path: "/hobbies",
-      },
-      {
-        name: "About",
-        path: "/about",
       },
     ],
   },
@@ -148,15 +148,15 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `Gatsby`,
+        name: `Sabmus Website`,
+        short_name: `SabmusWeb`,
         start_url: `/`,
         background_color: `#ffffff`,
         // This will impact how browsers show your PWA/website
         // https://css-tricks.com/meta-theme-color-and-trickery/
         // theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/code-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/electric.png`, // This path is relative to the root of the site.
       },
     },
   ],
