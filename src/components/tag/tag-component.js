@@ -6,8 +6,13 @@ import { TagElement } from "./tag-styles";
 const Tag = () => {
   const tagsObj = useStaticQuery(graphql`
     query {
-      allMarkdownRemark {
-        tags: group(field: { frontmatter: { tags: SELECT } }) {
+      allFile(
+        filter: { sourceInstanceName: { eq: "blog" }, extension: { eq: "md" } }
+        sort: { childMarkdownRemark: { frontmatter: { date: DESC } } }
+      ) {
+        tags: group(
+          field: { childMarkdownRemark: { frontmatter: { tags: SELECT } } }
+        ) {
           name: fieldValue
           count: totalCount
         }
@@ -15,7 +20,7 @@ const Tag = () => {
     }
   `);
 
-  const tags = tagsObj.allMarkdownRemark.tags;
+  const tags = tagsObj.allFile.tags;
   tags.sort((a, b) => b.count - a.count);
 
   return (

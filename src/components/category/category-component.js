@@ -6,8 +6,15 @@ import { CategoryElement } from "./category-styles";
 const Category = () => {
   const categoriesObj = useStaticQuery(graphql`
     query {
-      allMarkdownRemark {
-        categories: group(field: { frontmatter: { categories: SELECT } }) {
+      allFile(
+        filter: { sourceInstanceName: { eq: "blog" }, extension: { eq: "md" } }
+        sort: { childMarkdownRemark: { frontmatter: { date: DESC } } }
+      ) {
+        categories: group(
+          field: {
+            childMarkdownRemark: { frontmatter: { categories: SELECT } }
+          }
+        ) {
           name: fieldValue
           count: totalCount
         }
@@ -15,7 +22,7 @@ const Category = () => {
     }
   `);
 
-  const categories = categoriesObj.allMarkdownRemark.categories;
+  const categories = categoriesObj.allFile.categories;
   categories.sort((a, b) => b.count - a.count);
 
   return (

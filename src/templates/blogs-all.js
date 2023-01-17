@@ -5,7 +5,8 @@ import BlogsContainer from "./blogs-container";
 import Blogs from "../components/blogs/blogs-component";
 
 const BlogsAll = ({ data, pageContext }) => {
-  const posts = data.allMarkdownRemark.nodes;
+  const posts = data.allFile.nodes;
+  console.log(posts);
 
   return (
     <BlogsContainer>
@@ -18,21 +19,24 @@ export default BlogsAll;
 
 export const allBlogsQuery = graphql`
   query ($skip: Int!, $limit: Int!) {
-    allMarkdownRemark(
-      sort: { frontmatter: { date: DESC } }
+    allFile(
+      filter: { sourceInstanceName: { eq: "blog" }, extension: { eq: "md" } }
+      sort: { childMarkdownRemark: { frontmatter: { date: DESC } } }
       skip: $skip
       limit: $limit
     ) {
       nodes {
-        excerpt
-        id
-        frontmatter {
-          title
-          description
-          date(formatString: "MMMM D, YYYY")
-        }
-        fields {
-          slug
+        childMarkdownRemark {
+          id
+          excerpt
+          fields {
+            slug
+          }
+          frontmatter {
+            title
+            description
+            date(formatString: "MMMM D, YYYY")
+          }
         }
       }
     }

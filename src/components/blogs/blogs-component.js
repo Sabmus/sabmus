@@ -10,7 +10,10 @@ const Blogs = ({ posts, pageContext, title }) => {
     <BlogsWrapper>
       <h3>{title ? title : ""}</h3>
       {posts.map(post => (
-        <Post key={post.id} post={post} />
+        <Post
+          key={post.childMarkdownRemark.id}
+          post={post.childMarkdownRemark}
+        />
       ))}
       <Pager pages={pageContext} />
     </BlogsWrapper>
