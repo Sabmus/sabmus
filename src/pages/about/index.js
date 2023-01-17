@@ -1,5 +1,6 @@
 import React from "react";
 import Layout from "../../components/layout";
+import Seo from "../../components/seo";
 
 import { TlDr } from "../../styles/pages/about/about-styles";
 
@@ -172,3 +173,5 @@ const About = () => {
 };
 
 export default About;
+
+export const Head = () => <Seo title="About" />;

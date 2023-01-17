@@ -1,6 +1,7 @@
-import React from "react"
-import Layout from "../../components/layout"
-import { Link } from "gatsby"
+import React from "react";
+import Seo from "../../components/seo";
+import Layout from "../../components/layout";
+import { Link } from "gatsby";
 
 const Hobbies = () => {
   return (
@@ -8,7 +9,9 @@ const Hobbies = () => {
       <div>this is the main Hobbies page</div>
       <Link to="/">Home</Link>
     </Layout>
-  )
-}
+  );
+};
 
-export default Hobbies
+export default Hobbies;
+
+export const Head = () => <Seo title="Hobbies" />;

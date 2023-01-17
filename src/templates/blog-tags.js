@@ -1,4 +1,5 @@
 import React from "react";
+import Seo from "../components/seo";
 import { graphql } from "gatsby";
 
 import BlogsContainer from "./blogs-container";
@@ -15,6 +16,8 @@ const BlogTags = ({ data, pageContext }) => {
 };
 
 export default BlogTags;
+
+export const Head = ({ pageContext }) => <Seo title={pageContext.eq} />;
 
 export const blogsTagsQuery = graphql`
   query ($skip: Int!, $limit: Int!, $eq: String = "") {
