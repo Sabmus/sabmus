@@ -183,15 +183,6 @@ a:hover {
   text-shadow: 0 0 5px var(--color-honey-yellow-bright);
 }
 
-/* Media queries */
-
-@media (max-width: 42rem) {
-  blockquote {
-    padding: var(--spacing-0) var(--spacing-0) var(--spacing-0) var(--spacing-4);
-    margin-left: var(--spacing-0);
-  }
-  ul,
-  ol {
-    list-style-position: inside;
-  }
+pre[class*="language-"] {
+  background: red;
 }

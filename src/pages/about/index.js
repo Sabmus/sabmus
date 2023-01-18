@@ -117,20 +117,20 @@ const About = () => {
             <p>
               After that I embark myself in the freelance world (best thing
               ever) as a Web Developer in which I worked in two websites:
-              <ul>
-                <li>
-                  {urls.adnBike}: A social/ecommerce website in which you can
-                  publish your bicicle for sell or you can post your bicicle if
-                  it was stolen (I actually learn that every bicicle frame has
-                  an unique ID).
-                </li>
-                <li>
-                  Socich: A website for the Chilean Society of Surgeons. I was
-                  able to finish this website because of some differences
-                  between my client and me.
-                </li>
-              </ul>
             </p>
+            <ul>
+              <li>
+                {urls.adnBike}: A social/ecommerce website in which you can
+                publish your bicicle for sell or you can post your bicicle if it
+                was stolen (I actually learn that every bicicle frame has an
+                unique ID).
+              </li>
+              <li>
+                Socich: A website for the Chilean Society of Surgeons. I was
+                able to finish this website because of some differences between
+                my client and me.
+              </li>
+            </ul>
             <p>
               Then I realize that, working as freelance was really good, but
               also I didn't consider that I have to pay for my health plan and

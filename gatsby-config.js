@@ -91,6 +91,14 @@ module.exports = {
             },
           },
           `gatsby-remark-prismjs`,
+          {
+            resolve: `gatsby-remark-classes`,
+            options: {
+              classMap: {
+                paragraph: "test",
+              },
+            },
+          },
         ],
       },
     },
