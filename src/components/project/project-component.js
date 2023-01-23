@@ -17,17 +17,18 @@ const Project = ({ project }) => {
         <span className="date">{date}</span>
       </ProjectHeader>
 
-      <a href={url} target="_blank" rel="noreferrer">
-        <GatsbyImage
-          image={imageObj}
-          alt="Screenshot"
-          loading="eager"
-          layout="constrained"
-          formats={["auto", "webp", "avif"]}
-          quality={95}
-          className="screenshot-container"
-        />
-      </a>
+      {/* <a href={url} target="_blank" rel="noreferrer"> */}
+      <GatsbyImage
+        image={imageObj}
+        loading="eager"
+        layout="constrained"
+        style={{ maxHeight: "148px" }}
+        alt="Screenshot"
+        formats={["auto", "webp", "avif"]}
+        quality={75}
+        className="screenshot-container"
+      />
+      {/* </a> */}
       <ProjectTags>
         {tags.map(tag => (
           <span key={tag}>{tag}</span>

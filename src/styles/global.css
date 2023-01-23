@@ -182,7 +182,3 @@ a:hover {
   color: var(--color-honey-yellow-bright);
   text-shadow: 0 0 5px var(--color-honey-yellow-bright);
 }
-
-pre[class*="language-"] {
-  background: red;
-}

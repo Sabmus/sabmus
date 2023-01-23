@@ -1,6 +1,6 @@
 ---
 name: "Planets"
-url: "http://ec2-15-229-7-224.sa-east-1.compute.amazonaws.com:8000/"
+url: "https://github.com/Sabmus/planets"
 date: "2023-01-23"
 imageFile: "./planets_opt.png"
 tags: ["NodeJs", "ExpressJS", "AWS"]

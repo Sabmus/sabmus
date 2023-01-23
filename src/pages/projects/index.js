@@ -31,7 +31,7 @@ const Projects = () => {
                 tags
                 imageFile {
                   childImageSharp {
-                    gatsbyImageData
+                    gatsbyImageData(layout: CONSTRAINED)
                   }
                 }
               }

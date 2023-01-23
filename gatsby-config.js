@@ -111,7 +111,7 @@ module.exports = {
           {
             site {
               siteMetadata {
-                title
+                titles
                 description
                 siteUrl
                 site_url: siteUrl
