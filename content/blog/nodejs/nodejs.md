@@ -33,7 +33,7 @@ In this post we're going to learn how to secure endpoints using [Express.js](htt
 
 the first thing we're going to do is initialize a new project using npm (you can have npm by installing [nodejs](https://nodejs.org/en/) in your machine):
 
-```sh
+```bash
 mkdir project
 cd project
 npm init -y
@@ -41,7 +41,7 @@ npm init -y
 
 then we install the packeages needed:
 
-```sh
+```bash
 npm install express mongoose passport passport-jwt passport-local jsonwebtoken bcrypt cors helmet morgan dotenv cookie-parser
 ```
 
@@ -65,7 +65,7 @@ you can find all the packages in [npm](https://www.npmjs.com/)
 
 create a _src_ folder to contain all of our files
 
-```
+```bash
 src
 │   .env
 │   app.js
@@ -101,7 +101,7 @@ src
 
 We are going to use https, so you'll need a pair of keys for the TLS cetificate, this is easily obtained in you command shell using the next command:
 
-```sh
+```bash
 openssl req -x509 -newkey rsa:4096 -nodes -keyout key.pem -out cert.pem -days AAA
 ```
 

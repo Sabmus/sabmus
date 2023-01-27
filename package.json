@@ -8,6 +8,7 @@
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
   "dependencies": {
+    "@deckdeckgo/highlight-code": "^3.6.0",
     "@fontsource/merriweather": "^4.5.14",
     "@fontsource/montserrat": "^4.5.13",
     "babel-plugin-styled-components": "^2.0.7",
@@ -23,6 +24,7 @@
     "gatsby-plugin-styled-components": "^6.4.0",
     "gatsby-remark-autolink-headers": "^6.5.0",
     "gatsby-remark-classes": "^0.1.2",
+    "gatsby-remark-highlight-code": "^3.3.0",
     "gatsby-remark-images": "^7.4.0",
     "gatsby-remark-prismjs": "^7.4.0",
     "gatsby-remark-responsive-iframe": "^6.4.0",
