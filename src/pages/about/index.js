@@ -153,7 +153,7 @@ const About = () => {
             <p>
               Nowadays, and probably after gain some maturity, I realize that
               the path that I took is not for me, I miss working with tech, or
-              talking with tech people in a job enviroment. Currenly my work is
+              talking with tech people in a job enviroment. Currently my work is
               based on make sure that a query runs, and check that some numbers
               are correct, It's like my first job.
             </p>
