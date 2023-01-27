@@ -6,4 +6,4 @@ imageFile: "./eCommerceClothing.PNG"
 tags: ["React", "eCommerce"]
 ---
 
-test project summary
+Clothing eCommerce in React

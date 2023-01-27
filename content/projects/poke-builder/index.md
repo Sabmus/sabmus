@@ -6,4 +6,4 @@ imageFile: "./pokeBuilder.png"
 tags: ["React", "Pokemon"]
 ---
 
-test project summary
+A Pokemon builder for competitive play (in progress...)

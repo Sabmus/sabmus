@@ -13,7 +13,7 @@ const BlogsAll = path.resolve(`./src/templates/blogs-all.js`);
 const blogCategories = path.resolve("./src/templates/blog-categories.js");
 const blogTags = path.resolve("./src/templates/blog-tags.js");
 
-const postPerPage = 2;
+const postPerPage = 10;
 
 /**
  * @type {import('gatsby').GatsbyNode['createPages']}
