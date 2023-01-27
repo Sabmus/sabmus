@@ -25,10 +25,6 @@ module.exports = {
         name: `LinkedIn`,
         url: `https://www.linkedin.com/in/sabmus/`,
       },
-      {
-        name: `Instagram`,
-        url: `https://www.instagram.com/simonmunozs/`,
-      },
     ],
     navRoutes: [
       {

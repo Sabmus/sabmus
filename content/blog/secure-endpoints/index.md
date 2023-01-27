@@ -21,7 +21,7 @@ In this post we're going to learn how to secure endpoints using [Express.js](htt
     <li><a href="#routes-first-part">Routes (first part)</a></li>
     <li><a href="#models">Models</a></li>
     <li><a href="#controllers-first-part">Controllers (first part)</a></li>
-    <li><a href="#passport-auth-strategy">Passport auth Stragy</a></li>
+    <li><a href="#passport-auth-strategy">Passport auth Strategy</a></li>
     <li><a href="#routes-second-part">Routes (second part)</a></li>
     <li><a href="#routes-final-part">Routes (final part)</a></li>
     <li><a href="#controllers-final-part">Controllers (final part)</a></li>
