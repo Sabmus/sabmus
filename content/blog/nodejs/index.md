@@ -327,11 +327,16 @@ Before moving on, let's work on our models:
 
 <a href="#">back to top</a>
 
-for this example, I'm using [MondoDB Atlas](https://www.mongodb.com/atlas) which has a free tier with share resources ([Mongo Pricing](https://www.mongodb.com/pricing)). So, make sure you have an account, otherwise you may explore a different database in which case you would need to define you own structure.
+for this example, I'm using [MondoDB Atlas](https://www.mongodb.com/atlas) which
+has a free tier with share resources ([Mongo Pricing](https://www.mongodb.com/pricing)).
+So, make sure you have an account, otherwise you may explore a different database in
+which case you would need to define you own structure.
 
-In order to create a Collection in MongoDB, you first need a schema. A schema is like a blueprint of your data, in this case we are going to have four fields: username, password, permissionlevel and active.
+In order to create a Collection in MongoDB, you first need a schema.
+A schema is like a blueprint of your data, in this case we are going to
+have four fields: username, password, permissionlevel and active.
 
-> **_permissionlevel_** is one of the field to authorize and access to a endpoint, it'll work as having: admin, superadmin, regular users, and so on.  
+> **_permissionlevel_** give permission to certain endpoints  
 > **_active_** would tell us if the users is active or not
 
 ### models/mongo/users.mongo.js
@@ -374,7 +379,8 @@ usersSchema.methods.isValidPassword = async function (password) {
 module.exports = mongoose.model("User", usersSchema);
 ```
 
-Next, we take our user model and use it inside _users.model.js_. Kinda weird right? but we do this to have a separation between the definition of our models and the use of it
+Next, we take our user model and use it inside _users.model.js_. Kinda weird right?
+but we do this to have a separation between the definition of our models and the use of it
 
 ### models/users.models.js
 
@@ -468,7 +474,8 @@ module.exports = {
 };
 ```
 
-Alright, now we just need to finish our routes, and also controllers with have all the route handlers and finally look at the implementation of authentication and authorization, let's do it!
+Alright, now we just need to finish our routes, and also controllers with have all the route
+handlers and finally look at the implementation of authentication and authorization, let's do it!
 
 ## Controllers (_first part_)
 
@@ -499,7 +506,9 @@ const PERMISSION_LEVELS = [1, 2, 3, 4, 5];
 const ACTIVE_OPTIONS = [0, 1];
 ```
 
-Now, let's work on getting all users from our database. Here we use _getAllUsers_ function from users.models.js file. In case that the function don't return us a list of users, we show a message saying that there is no users in db. If we do have users, we show them as json with status code 200
+Now, let's work on getting all users from our database. Here we use _getAllUsers_ function
+from users.models.js file. In case that the function don't return us a list of users,
+we show a message saying that there is no users in db. If we do have users, we show them as json with status code 200
 
 ```js
 async function httpGetUsers(req, res) {
@@ -521,7 +530,13 @@ Then, let's create a new users. Here we do three things:
 2. hashed the password
 3. save to database
 
-First we destructure the request.body, and if we lack one of the required fields, we send a response saying that a username and password must be provided. Next we check the length of the password. Then we check that our users doesn't exists, and if it does, we respond with a 409 code saying that the users already exists (Here you may want to change the message in order to not give that much info about the users). Lastly we hash the password using our utility function and then send it to be saved in the database using our _createNewUser_ function
+First we destructure the request.body, and if we lack one of the required fields,
+we send a response saying that a username and password must be provided.
+Next we check the length of the password. Then we check that our users doesn't exists,
+and if it does, we respond with a 409 code saying that the users already exists
+(Here you may want to change the message in order to not give that much info about the users).
+Lastly we hash the password using our utility function and then send it to be saved
+in the database using our _createNewUser_ function
 
 ```js
 async function httpCreateNewUser(req, res) {
@@ -566,7 +581,9 @@ async function httpCreateNewUser(req, res) {
 }
 ```
 
-To get one we need to get the username passed into the url, for this we use the property params of request, follow by the name of the parameters that we give in our users route file. Then we run a validation for the existense of the user
+To get one we need to get the username passed into the url, for this we use the property
+params of request, follow by the name of the parameters that we give in our users route file.
+Then we run a validation for the existense of the user
 
 ```js
 async function httpGetOneUser(req, res) {
@@ -581,8 +598,10 @@ async function httpGetOneUser(req, res) {
 }
 ```
 
-For modify the user data we use a helper function that create a user object to be passed to the _modifyUserFull_ function. As before, we get the username from the request parameter, and the request body that we're going to pass to our helper function, but first we validate that the users exists.  
-_createUserObject_ will do three things:
+For modify the user data we use a helper function that create a user object to be passed
+to the _modifyUserFull_ function. As before, we get the username from the request parameter,
+and the request body that we're going to pass to our helper function, but first we validate
+that the users exists. _createUserObject_ will do three things:
 
 1. if we have a req.body.password, we check its length, then we hashed it and then save it to the _userModified_ object
 2. if we have a req.body.permissionlevel, we check that is a valid permission value, and then store it inside the _userModified_ object
@@ -660,7 +679,8 @@ async function httpModifyUserFull(req, res) {
 }
 ```
 
-Next, to "delete" a user we actually changes its active status to false, so then we retain the users information in our database, we also do our validations
+Next, to "delete" a user we actually changes its active status to false,
+so then we retain the users information in our database, we also do our validations
 
 ```js
 async function httpSetActiveToFalse(req, res) {
@@ -879,7 +899,12 @@ module.exports = {
 
 ### middlewares/auth.js
 
-As said before, in this example we are going to use [passport.js](https://www.passportjs.org/) to handle authentication and authorization. The way passport work is by setting strategies. Passport has a good amount of strategies for various authentication systems such as: regular username and password, JWT tokens, OAuth, OAuth2, and so on. We are going to use a regular username and password for the login, and set a JWT token just after the successful login in. First let's define the strategies:  
+As said before, in this example we are going to use [passport.js](https://www.passportjs.org/)
+to handle authentication and authorization. The way passport work is by setting strategies.
+Passport has a good amount of strategies for various authentication systems such as
+regular username and password, JWT tokens, OAuth, OAuth2, and so on. We are going
+to use a regular username and password for the login, and set a JWT token just
+after the successful login in. First let's define the strategies:  
 First we define our imports
 
 ```js
