@@ -1,7 +1,5 @@
 ## Hey!, welcome
 
-My name is Simón, I'm a Computer Engineer from Chile. I'm a person that discover his career path a little late but, it's never late, right?
+My name is Simón, I'm a Computer Engineer from Chile. I started my career as a web developer working with PHP and .NET, to then work in data related positions. Later on I realize that, I would never read about data topics on a Sunday afternoon, but time goes fly when I learn about web development. Nowadays I'm focused on get a job as a web developer.
 
-I want to learn and be a master in web development, so currently I'm focused on updating my knowledge.
-
-> Currently learning: React, NodeJS
+This repo has the first version of my website. Please visit the current version at [sabmus.com](https://sabmus.com)
