@@ -1,13 +1,12 @@
 
 <h1 align="center">Hello there, I'm Simón</h1>
 <h3 align="center">A software engineer from Chile</h3>
-<p align="center">I started my career as web developer to then work a couple of years in data related positions. One day I realize that I would never read about data topics on a weekend but reading and learning about web development always has been really motivating for me, so I decided to start again as web developer.</p>
+<p align="center">I started my career as web developer to then work a couple of years in data related positions. After a couple of years working in BI positions, I'm taking my career path back to a fully tech path. My goal is to land a job in a Data Engineer position or Web development.</p>
 
 
 - 🌱 I’m currently learning **NextJS 14, ExpressJs**
 
 - 👨‍💻 All of my projects are available at [https://sabmus.com](https://sabmus.com)
-
 
 - 📫 How to reach me **abiatar.ms@gmail.com or hello@sabmus.com**
 
