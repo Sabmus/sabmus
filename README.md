@@ -1,16 +1,14 @@
 
 <h1 align="center">Hello there, I'm Simón</h1>
 <h3 align="center">A software engineer from Chile</h3>
-<p align="center">I started my career as web developer to then work a couple of years in data related positions. After a couple of years working in BI positions, I'm taking my career path back to a fully tech path. My goal is to land a job in a Data Engineer position or Web development.</p>
+<p align="center">Currently learning how to build robots!</p>
 
 
-- 🌱 I’m currently learning **NextJS 14, ExpressJs**
+- 🌱 I’m currently learning Arduino
 
 - 👨‍💻 All of my projects are available at [https://sabmus.com](https://sabmus.com)
 
 - 📫 How to reach me **abiatar.ms@gmail.com or hello@sabmus.com**
-
-- ⚡ Fun fact **I love to play videogames, and I'm a F1 fan**
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
