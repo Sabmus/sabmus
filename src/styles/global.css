@@ -1,0 +1,30 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  html,
+  body {
+    @apply m-0 w-full h-full;
+  }
+}
+
+@layer components {
+  a {
+    @apply text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-200;
+  }
+}
+
+@layer utilities {
+  .container {
+    @apply mx-auto px-4;
+  }
+}
+
+@theme {
+  --color-primary: #1d4ed8;
+  --color-secondary: #9333ea;
+
+  --color-primary-dark: #07183f;
+  --color-secondary-dark: #a78bfa;
+}
