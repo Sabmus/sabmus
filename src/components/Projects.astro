@@ -1,0 +1,112 @@
+---
+import { ExternalLink, Github, Folder } from '@lucide/astro';
+
+interface Project {
+   id: string;
+   title: string;
+   description: string;
+   tags: string[];
+   link?: string;
+   github?: string;
+   image?: string;
+}
+
+const PROJECTS: Project[] = [
+   {
+      id: '1',
+      title: 'E-Commerce Dashboard',
+      description:
+         'A comprehensive analytics dashboard for online retailers. Features real-time data visualization, inventory management, and order processing capabilities.',
+      tags: ['React', 'D3.js', 'Supabase', 'Tailwind'],
+      github: 'https://github.com',
+      link: 'https://example.com',
+   },
+   {
+      id: '2',
+      title: 'TaskMaster AI',
+      description:
+         'Productivity application utilizing Gemini API to intelligently categorize and prioritize tasks based on user behavior and deadlines.',
+      tags: ['TypeScript', 'Gemini API', 'Node.js', 'PostgreSQL'],
+      github: 'https://github.com',
+      link: 'https://example.com',
+   },
+   {
+      id: '3',
+      title: 'Social Connect',
+      description:
+         'A lightweight social networking platform focused on privacy and data ownership. Built with a decentralized architecture.',
+      tags: ['Vue.js', 'Firebase', 'PWA'],
+      github: 'https://github.com',
+   },
+   {
+      id: '4',
+      title: 'Weather Native',
+      description:
+         'React Native mobile application providing hyper-local weather forecasts with severe weather alerts.',
+      tags: ['React Native', 'Expo', 'Weather API'],
+      link: 'https://example.com',
+   },
+];
+---
+
+<section
+   id="projects"
+   class="py-20 max-w-5xl mx-auto px-6 bg-gray-50/50 dark:bg-white/5 rounded-3xl my-10"
+>
+   <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Featured Projects</h2>
+      <div class="w-20 h-1 bg-primary-600 dark:bg-primary-500 rounded-full"></div>
+   </div>
+
+   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {
+         PROJECTS.map(project => (
+            <div class="group relative bg-white dark:bg-slate-900 p-6 rounded-2xl border border-gray-200 dark:border-gray-800 hover:border-primary-300 dark:hover:border-primary-700 transition-all hover:shadow-lg hover:-translate-y-1">
+               <div class="flex justify-between items-start mb-6">
+                  <div class="p-3 bg-primary-50 dark:bg-primary-900/20 rounded-lg text-primary-600 dark:text-primary-400">
+                     <Folder size={24} />
+                  </div>
+                  <div class="flex gap-4">
+                     {project.github && (
+                        <a
+                           href={project.github}
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors"
+                           aria-label="View Source"
+                        >
+                           <Github size={20} />
+                        </a>
+                     )}
+                     {project.link && (
+                        <a
+                           href={project.link}
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="text-gray-500 hover:text-primary-600 dark:text-gray-400 dark:hover:text-primary-400 transition-colors"
+                           aria-label="Visit Site"
+                        >
+                           <ExternalLink size={20} />
+                        </a>
+                     )}
+                  </div>
+               </div>
+
+               <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                  {project.title}
+               </h3>
+
+               <p class="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
+                  {project.description}
+               </p>
+
+               <ul class="flex flex-wrap gap-3 mt-auto">
+                  {project.tags.map(tag => (
+                     <li class="text-sm font-mono text-gray-500 dark:text-gray-500">{tag}</li>
+                  ))}
+               </ul>
+            </div>
+         ))
+      }
+   </div>
+</section>

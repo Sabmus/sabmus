@@ -1,0 +1,103 @@
+---
+import { Moon, Sun, Menu, X } from '@lucide/astro';
+import ThemeToggle from './ThemeToggle.astro';
+
+interface NavItem {
+   label: string;
+   href: string;
+}
+
+const NAV_ITEMS: NavItem[] = [
+   { label: 'About', href: '#about' },
+   { label: 'Experience', href: '#experience' },
+   { label: 'Projects', href: '#projects' },
+   { label: 'Contact', href: '#contact' },
+];
+
+let isMenuOpen = false;
+---
+
+<header
+   class="sticky top-0 z-50 w-full backdrop-blur-md bg-white/70 dark:bg-slate-950/70 border-b border-gray-200 dark:border-slate-800 transition-colors duration-300"
+>
+   <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+      {/* Logo / Name */}
+      <a
+         href="#"
+         class="text-xl font-bold tracking-tight dark:text-primary-50 hover:text-primary-600 dark:hover:text-primary-500 transition-colors"
+      >
+         Simón<span class="text-primary-600 dark:text-primary-500">MuñozSaavedra</span>.
+      </a>
+
+      {/* Desktop Navigation */}
+      <nav class="hidden md:flex items-center gap-8">
+         {
+            NAV_ITEMS.map(item => (
+               <a
+                  href={item.href}
+                  class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+               >
+                  {item.label}
+               </a>
+            ))
+         }
+
+         <ThemeToggle />
+      </nav>
+
+      {/* Mobile Menu Toggle */}
+      <div class="flex items-center gap-4 md:hidden">
+         <ThemeToggle />
+
+         <button
+            id="mobile-menu-toggle"
+            class="p-2 text-gray-600 dark:text-gray-300 hover:text-primary-600"
+            aria-label="Menu"
+         >
+            <Menu size={24} id="menu-icon" />
+            <X size={24} id="close-icon" class="hidden" />
+         </button>
+      </div>
+   </div>
+
+   {/* Mobile Navigation Dropdown */}
+   <div
+      id="mobile-menu"
+      class="hidden md:hidden border-t border-gray-200 dark:border-slate-800 bg-white dark:bg-slate-950"
+   >
+      <div class="flex flex-col p-4 space-y-4">
+         {
+            NAV_ITEMS.map(item => (
+               <a
+                  href={item.href}
+                  class="text-base font-medium text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400"
+               >
+                  {item.label}
+               </a>
+            ))
+         }
+      </div>
+   </div>
+</header>
+
+<script>
+   const menuToggle = document.getElementById('mobile-menu-toggle');
+   const mobileMenu = document.getElementById('mobile-menu');
+   const menuIcon = document.getElementById('menu-icon');
+   const closeIcon = document.getElementById('close-icon');
+   const navLinks = mobileMenu?.querySelectorAll('a');
+
+   menuToggle?.addEventListener('click', () => {
+      mobileMenu?.classList.toggle('hidden');
+      menuIcon?.classList.toggle('hidden');
+      closeIcon?.classList.toggle('hidden');
+   });
+
+   navLinks?.forEach(link => {
+      link.addEventListener('click', () => {
+         mobileMenu?.classList.add('hidden');
+         menuIcon?.classList.remove('hidden');
+         closeIcon?.classList.add('hidden');
+      });
+   });
+</script>

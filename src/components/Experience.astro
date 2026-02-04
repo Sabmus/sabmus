@@ -1,0 +1,81 @@
+---
+interface Job {
+   id: string;
+   company: string;
+   role: string;
+   period: string;
+   description: string;
+   technologies: string[];
+}
+
+const JOBS: Job[] = [
+   {
+      id: '1',
+      company: 'Tech Solutions Inc.',
+      role: 'Senior Frontend Engineer',
+      period: '2021 — Present',
+      description:
+         'Lead engineer for the core product design system. Migrated legacy codebase to React 18 and TypeScript, improving load times by 40%. Mentored junior developers and introduced automated testing pipelines.',
+      technologies: ['React', 'TypeScript', 'Next.js', 'GraphQL'],
+   },
+   {
+      id: '2',
+      company: 'Creative Agency',
+      role: 'Web Developer',
+      period: '2019 — 2021',
+      description:
+         'Developed high-performance marketing websites for Fortune 500 clients. Collaborated closely with designers to ensure pixel-perfect implementation of Figma designs.',
+      technologies: ['Vue.js', 'Tailwind CSS', 'AWS', 'Node.js'],
+   },
+   {
+      id: '3',
+      company: 'StartUp Hub',
+      role: 'Junior Developer',
+      period: '2018 — 2019',
+      description:
+         'Built and maintained internal tools for the operations team. Assisted in the development of the mobile application using React Native.',
+      technologies: ['React Native', 'Firebase', 'JavaScript'],
+   },
+];
+---
+
+<section id="experience" class="py-20 max-w-5xl mx-auto px-6">
+   <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Work Experience</h2>
+      <div class="w-20 h-1 bg-primary-600 dark:bg-primary-500 rounded-full"></div>
+   </div>
+
+   <div class="relative border-l border-gray-200 dark:border-gray-800 ml-3 md:ml-6 space-y-12">
+      {
+         JOBS.map(job => (
+            <div class="relative pl-8 md:pl-12">
+               {/* Timeline Dot */}
+               <div class="absolute -left-1.25 top-2 w-2.5 h-2.5 rounded-full bg-primary-600 dark:bg-primary-500 ring-4 ring-white dark:ring-slate-950" />
+
+               <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-2">
+                  <h3 class="text-xl font-bold text-gray-900 dark:text-white">{job.role}</h3>
+                  <span class="text-sm font-mono text-gray-500 dark:text-gray-400 mt-1 sm:mt-0">
+                     {job.period}
+                  </span>
+               </div>
+
+               <div class="mb-4 text-primary-600 dark:text-primary-400 font-medium">
+                  {job.company}
+               </div>
+
+               <p class="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
+                  {job.description}
+               </p>
+
+               <div class="flex flex-wrap gap-2">
+                  {job.technologies.map(tech => (
+                     <span class="px-3 py-1 text-xs font-medium rounded-full bg-primary-50 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 border border-primary-100 dark:border-primary-800">
+                        {tech}
+                     </span>
+                  ))}
+               </div>
+            </div>
+         ))
+      }
+   </div>
+</section>
