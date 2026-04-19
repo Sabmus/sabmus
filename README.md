@@ -4,8 +4,6 @@
 
 - 🌱 I’m currently learning Arduino
 
-- 👨‍💻 All of my projects are available at [https://sabmus.com](https://sabmus.com)
-
 - 📫 How to reach me **abiatar.ms@gmail.com or hello@sabmus.com**
 
 <h3 align="left">Connect with me:</h3>
