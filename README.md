@@ -39,12 +39,6 @@ for subscriptions, billing, and user management.
 
 ---
 
-## GitHub Activity
-
-<img src="https://ghchart.rshah.org/sabmus" alt="sabmus's GitHub contribution chart" />
-
----
-
 ## Let's connect
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/sabmus)
